@@ -1,17 +1,9 @@
 php:
   build: .
   ports:
+   - "8080:80"
    - "8090:443"
    - "8091:81"
   volumes:
-   - ..:/var/www/html
-  links:
-   - db
+   - ..:/opt/app
 
-db:
-  image: pyriand3r/i386-mysql:5.7
-  volumes:
-   - /var/lib/mysql
-  environment:
-   - MYSQL_ROOT_PASSWORD=phprs
-   - MYSQL_DATABASE=phprs
